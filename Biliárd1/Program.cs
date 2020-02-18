@@ -13,12 +13,18 @@ namespace Biliárd1
 
             List<int> golyók = new List<int>();
             Kezdes(golyók);
-            int leeső=LeEsőSorsoló(golyók);
-            Kiiró(golyók);
-            
+            int Leeső;
+           
+            do
+            {
+                Leeső = LeEsőSorsoló(golyók);
+                Console.WriteLine();
+                Kiiró(golyók);
+                Console.WriteLine($"ez esett le:{Leeső}");
+
+            } while (Leeső!=8);
 
            
-            Console.WriteLine(leeső);
             Console.ReadLine();
             
         }
@@ -33,17 +39,12 @@ namespace Biliárd1
 
         private static int LeEsőSorsoló(List<int> golyók)
         {
-            
-            
+                int szám;
                 Random gép = new Random();
-            int szám = gép.Next(golyók.Count);
-            golyók.Remove(szám);
+                szám = gép.Next(golyók.Count);
+                golyók.Remove(golyók[szám]);
+                return golyók[szám];
 
-            return golyók[szám];
-
-           
-            
-        
         }
 
         private static void Kezdes(List<int> golyók)
