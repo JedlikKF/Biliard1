@@ -10,7 +10,22 @@ namespace Biliárd1
     {
         static void Main(string[] args)
         {
+
+            List<int> golyók = new List<int>();
+            Kezdes(golyók);
+            for (int i = 0; i < golyók.Count; i++)
+            {
+                Console.WriteLine(golyók[i]);
+            }
             Console.ReadLine();
+        }
+
+        private static void Kezdes(List<int> golyók)
+        {
+            for (int i = 1; i <= 15; i++)
+            {
+                golyók.Add(i);
+            }
         }
     }
 }
