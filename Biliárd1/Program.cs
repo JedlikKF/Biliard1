@@ -13,11 +13,37 @@ namespace Biliárd1
 
             List<int> golyók = new List<int>();
             Kezdes(golyók);
+            int leeső=LeEsőSorsoló(golyók);
+            Kiiró(golyók);
+            
+
+           
+            Console.WriteLine(leeső);
+            Console.ReadLine();
+            
+        }
+
+        private static void Kiiró(List<int> golyók)
+        {
             for (int i = 0; i < golyók.Count; i++)
             {
-                Console.WriteLine(golyók[i]);
+                Console.Write(golyók[i]+" ");
             }
-            Console.ReadLine();
+        }
+
+        private static int LeEsőSorsoló(List<int> golyók)
+        {
+            
+            
+                Random gép = new Random();
+            int szám = gép.Next(golyók.Count);
+            golyók.Remove(szám);
+
+            return golyók[szám];
+
+           
+            
+        
         }
 
         private static void Kezdes(List<int> golyók)
